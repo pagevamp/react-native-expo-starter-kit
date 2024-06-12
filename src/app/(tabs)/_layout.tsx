@@ -11,7 +11,7 @@ const STYLES = StyleSheet.create({
   tabBarStyle: {
     marginVertical: vs.h12,
     elevation: 0,
-    borderTopWidth:0,
+    borderTopWidth: 0,
   },
   tabBarLabelStyle: {
     ...TextStyles.FTBaseRegular,
@@ -20,7 +20,7 @@ const STYLES = StyleSheet.create({
   },
 });
 
-export default function TabLayout() {
+const TabLayout = () => {
   const colorScheme = useColorScheme();
 
   return (
@@ -29,12 +29,15 @@ export default function TabLayout() {
         tabBarActiveTintColor: CustomTheme[colorScheme ?? "light"].tint,
         tabBarInactiveTintColor: Colors.neutral400,
         headerShown: false,
-        tabBarStyle: [STYLES.tabBarStyle, {
-          backgroundColor:
-            colorScheme === "dark"
-              ? DarkTheme?.colors?.background
-              : DefaultTheme?.colors?.background,
-        }],
+        tabBarStyle: [
+          STYLES.tabBarStyle,
+          {
+            backgroundColor:
+              colorScheme === "dark"
+                ? DarkTheme?.colors?.background
+                : DefaultTheme?.colors?.background,
+          },
+        ],
         tabBarLabelStyle: STYLES.tabBarLabelStyle,
       }}
     >
@@ -69,4 +72,6 @@ export default function TabLayout() {
       />
     </Tabs>
   );
-}
+};
+
+export default TabLayout;

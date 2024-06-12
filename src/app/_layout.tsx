@@ -9,10 +9,13 @@ import { useFonts } from "expo-font";
 import { Stack } from "expo-router";
 import * as SplashScreen from "expo-splash-screen";
 import * as Sentry from "@sentry/react-native";
+import { Provider } from "react-redux";
+import { PersistGate } from "redux-persist/integration/react";
 
-import { useColorScheme } from "@io/hooks";
+import { useAppDispatch, useAppSelector, useColorScheme } from "@io/hooks";
 import { AppFonts } from "@io/constants";
 import { sentryConfig } from "@io/config";
+import { store, persistor } from "@io/redux/Store";
 
 /*
   Initialize Sentry after setting up sentry project
@@ -26,6 +29,7 @@ SplashScreen.preventAutoHideAsync();
 
 const RootLayout = () => {
   const colorScheme = useColorScheme();
+
   const [loaded] = useFonts({
     [AppFonts.SpaceMono]: require("@io/assets/fonts/SpaceMono-Regular.ttf"),
     [AppFonts.FTBase]: require("@io/assets/fonts/FTBase-Book.otf"),
@@ -42,12 +46,18 @@ const RootLayout = () => {
   }
 
   return (
-    <ThemeProvider value={colorScheme === "dark" ? DarkTheme : DefaultTheme}>
-      <Stack>
-        <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
-        {/* Other Screens in Stack */}
-      </Stack>
-    </ThemeProvider>
+    <Provider store={store}>
+      <PersistGate loading={null} persistor={persistor}>
+        <ThemeProvider
+          value={colorScheme === "dark" ? DarkTheme : DefaultTheme}
+        >
+          <Stack screenOptions={{ headerShown: false }}>
+            <Stack.Screen name="(tabs)" />
+            {/* Other Screens in Stack */}
+          </Stack>
+        </ThemeProvider>
+      </PersistGate>
+    </Provider>
   );
 };
 
