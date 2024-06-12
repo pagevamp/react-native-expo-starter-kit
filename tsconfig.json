@@ -5,8 +5,11 @@
     "paths": {
       "@/*": [
         "./*"
-      ]
-    }
+      ],
+      "@io/*": ["./src/*"] // alias for src directory
+    },
+    "esModuleInterop": true,
+    "allowSyntheticDefaultImports": true,
   },
   "include": [
     "**/*.ts",
