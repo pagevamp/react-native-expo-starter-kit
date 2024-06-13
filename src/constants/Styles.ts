@@ -1,10 +1,11 @@
 import { StyleSheet } from "react-native";
 
 import { AppFonts } from "./AppFonts";
+import { hs } from "./Scaling";
 
 const COMMON_TEXT_FONT = {
-  fontFamily: AppFonts.FTBase
-}
+  fontFamily: AppFonts.FTBase,
+};
 
 const TextStyles = StyleSheet.create({
   FTBaseRegular: {
@@ -33,45 +34,45 @@ const CommonStyles = StyleSheet.create({
     flexGrow: 1,
   },
   justifyStart: {
-    justifyContent: 'flex-start',
+    justifyContent: "flex-start",
   },
   alignItemsCenter: {
-    alignItems: 'center',
+    alignItems: "center",
   },
   alignItemsEnd: {
-    alignItems: 'flex-end',
+    alignItems: "flex-end",
   },
   alignSelfCenter: {
-    alignSelf: 'center',
+    alignSelf: "center",
   },
   alignSelfEnd: {
-    alignSelf: 'flex-end',
+    alignSelf: "flex-end",
   },
-  centerText: {
-    textAlign: 'center',
+  alignTextCenter: {
+    textAlign: "center",
   },
   flexContainer: {
     flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
+    justifyContent: "center",
+    alignItems: "center",
   },
   flexRow: {
-    flexDirection: 'row',
+    flexDirection: "row",
   },
   flexWrap: {
-    flexWrap: 'wrap',
+    flexWrap: "wrap",
   },
   justifySpaceBetween: {
-    justifyContent: 'space-between',
+    justifyContent: "space-between",
   },
   justifyContentCenter: {
-    justifyContent: 'center',
+    justifyContent: "center",
   },
   justifyContentEvenly: {
-    justifyContent: 'space-evenly',
+    justifyContent: "space-evenly",
   },
   justifyContentEnd: {
-    justifyContent: 'flex-end',
+    justifyContent: "flex-end",
   },
   image: {
     flex: 1,
@@ -79,7 +80,10 @@ const CommonStyles = StyleSheet.create({
     height: undefined,
   },
   width100: {
-    width: '100%',
+    width: "100%",
+  },
+  paddingHorizontal20: {
+    paddingHorizontal: hs.w20,
   },
 });
 
