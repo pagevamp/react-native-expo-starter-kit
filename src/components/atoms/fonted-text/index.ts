@@ -1,3 +1,3 @@
-import FontedText from './FontedText';
+import FontedText from "./FontedText";
 
 export { FontedText };

@@ -22,12 +22,9 @@ const LoginScreen = () => {
         CommonStyles.flexRoot,
         CommonStyles.paddingHorizontal20,
         { backgroundColor: theme.background, paddingBottom: insets.bottom ?? vs.h18 },
-      ]}
-    >
+      ]}>
       <View style={CommonStyles.flexContainer}>
-        <FontedText
-          text="Login Screen"
-        />
+        <FontedText text="Login Screen" />
       </View>
 
       <FormButton title="Login" onPress={handleLogin} />

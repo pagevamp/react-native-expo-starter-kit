@@ -1,12 +1,8 @@
 import "react-native-reanimated";
 import { useEffect } from "react";
-import {
-  DarkTheme,
-  DefaultTheme,
-  ThemeProvider,
-} from "@react-navigation/native";
+import { DarkTheme, DefaultTheme, ThemeProvider } from "@react-navigation/native";
 import { useFonts } from "expo-font";
-import { Slot, Stack } from "expo-router";
+import { Stack } from "expo-router";
 import * as SplashScreen from "expo-splash-screen";
 import * as Sentry from "@sentry/react-native";
 import { Provider } from "react-redux";
@@ -50,15 +46,12 @@ const RootLayout = () => {
     <Provider store={store}>
       <PersistGate loading={null} persistor={persistor}>
         <AuthProvider>
-          <ThemeProvider
-            value={colorScheme === "dark" ? DarkTheme : DefaultTheme}
-          >
+          <ThemeProvider value={colorScheme === "dark" ? DarkTheme : DefaultTheme}>
             <Stack
               screenOptions={{
                 headerShown: false,
-              }}
-            >
-              <Stack.Screen name="(auth)" options={{ animation: 'slide_from_left'}} />
+              }}>
+              <Stack.Screen name="(auth)" options={{ animation: "slide_from_left" }} />
 
               <Stack.Screen name="(tabs)" />
             </Stack>

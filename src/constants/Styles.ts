@@ -26,6 +26,50 @@ const TextStyles = StyleSheet.create({
   },
 });
 
+const TextTypeStyles = StyleSheet.create({
+  heading: {
+    ...TextStyles.FTBaseBold,
+    fontSize: hs.w24,
+  },
+  subheading: {
+    ...TextStyles.FTBaseSemiBold,
+    fontSize: hs.w20,
+  },
+  bodyText: {
+    ...TextStyles.FTBaseRegular,
+    fontSize: hs.w12,
+  },
+  secondaryText: {
+    fontSize: hs.w14,
+  },
+  buttonText: {
+    ...TextStyles.FTBaseMedium,
+    fontSize: hs.w16,
+    textTransform: "uppercase",
+  },
+  linkText: {
+    ...TextStyles.FTBaseMedium,
+    fontSize: hs.w16,
+    textDecorationLine: "underline",
+  },
+  errorMessage: {
+    ...TextStyles.FTBaseMedium,
+    fontSize: hs.w14,
+  },
+  label: {
+    ...TextStyles.FTBaseSemiBold,
+    fontSize: hs.w14,
+  },
+  placeholderText: {
+    ...TextStyles.FTBaseRegular,
+    fontSize: hs.w14,
+  },
+  disabledText: {
+    ...TextStyles.FTBaseMedium,
+    fontSize: hs.w16,
+  },
+});
+
 const CommonStyles = StyleSheet.create({
   flexRoot: {
     flex: 1,
@@ -87,4 +131,4 @@ const CommonStyles = StyleSheet.create({
   },
 });
 
-export { TextStyles, CommonStyles };
+export { TextStyles, CommonStyles, TextTypeStyles };

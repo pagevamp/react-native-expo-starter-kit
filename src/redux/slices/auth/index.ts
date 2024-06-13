@@ -1,16 +1,3 @@
-import AuthReducer, {
-  setLoggedIn,
-  updateSelectedAccount,
-  setFcmToken,
-  resetAuthState,
-  SocialLoginType,
-} from './AuthSlice';
+import AuthReducer, { setLoggedIn, resetAuthState } from "./AuthSlice";
 
-export {
-  AuthReducer,
-  setLoggedIn,
-  updateSelectedAccount,
-  setFcmToken,
-  resetAuthState,
-  SocialLoginType,
-};
+export { AuthReducer, setLoggedIn, resetAuthState };

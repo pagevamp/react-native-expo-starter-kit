@@ -1,11 +1,5 @@
 import React, { FC } from "react";
-import {
-  GestureResponderEvent,
-  StyleProp,
-  TextStyle,
-  ViewStyle,
-  StyleSheet,
-} from "react-native";
+import { GestureResponderEvent, StyleProp, TextStyle, ViewStyle, StyleSheet } from "react-native";
 import { Button } from "@rneui/themed";
 import { ButtonProps } from "@rneui/themed";
 

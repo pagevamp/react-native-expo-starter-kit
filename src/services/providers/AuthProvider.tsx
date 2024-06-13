@@ -1,8 +1,7 @@
 import * as React from "react";
 import { router, useRootNavigationState, useSegments } from "expo-router";
 import { useAppSelector } from "@io/hooks";
-import { ActivityIndicator, View } from "react-native";
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 
 const contextInitialState: ContextInterface = {};
 
@@ -36,11 +35,11 @@ function useProtectedRoute(isLoggedIn: boolean) {
     } else if (isLoggedIn && inAuthGroup) {
       router.replace("/(tabs)");
     }
-  }, [isLoggedIn, navigationState]);
+  }, [isLoggedIn, navigationState, segments]);
 }
 
 export function AuthProvider({ children }: React.PropsWithChildren) {
-  const { isLoggedIn } = useAppSelector((state) => state.auth);
+  const { isLoggedIn } = useAppSelector(state => state.auth);
 
   useProtectedRoute(isLoggedIn);
 

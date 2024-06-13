@@ -1,11 +1,11 @@
 const toCamel = (s: string | undefined | null): string | undefined => {
   return s?.replace(/([-_][a-z])/gi, $1 => {
-    return $1.toUpperCase().replace('-', '').replace('_', '');
+    return $1.toUpperCase().replace("-", "").replace("_", "");
   });
 };
 
 const isObject = (o: any): boolean => {
-  return o === Object(o) && !Array.isArray(o) && typeof o !== 'function';
+  return o === Object(o) && !Array.isArray(o) && typeof o !== "function";
 };
 
 const keysToCamel = function (o: any): any {
@@ -32,9 +32,9 @@ const keysToCamel = function (o: any): any {
 const capitalizeFirstLetterInWords = (str: string) =>
   str
     ? str
-        .split(' ')
+        .split(" ")
         .map(word => word.charAt(0).toUpperCase() + word.substring(1))
-        .join(' ')
+        .join(" ")
     : str;
 
 export { toCamel, keysToCamel, capitalizeFirstLetterInWords };

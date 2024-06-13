@@ -6,7 +6,7 @@ import {
   FetchBaseQueryError,
 } from "@reduxjs/toolkit/query/react";
 
-import { RootState } from '@io/redux/Store';
+import { RootState } from "@io/redux/Store";
 
 export const API_REDUCER_KEY = "AppApi";
 
@@ -21,11 +21,11 @@ const baseQuery = fetchBaseQuery({
   },
 });
 
-const baseQueryWithReAuth: BaseQueryFn<
-  string | FetchArgs,
-  unknown,
-  FetchBaseQueryError
-> = async (args, api, extraOptions = {}) => {
+const baseQueryWithReAuth: BaseQueryFn<string | FetchArgs, unknown, FetchBaseQueryError> = async (
+  args,
+  api,
+  extraOptions = {}
+) => {
   const result: any = await baseQuery(args, api, extraOptions);
 
   try {

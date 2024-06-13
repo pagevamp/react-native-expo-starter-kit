@@ -1,3 +1,3 @@
 import { EventsTabScreen } from "@io/screens";
 
-export default () => <EventsTabScreen />
+export default () => <EventsTabScreen />;

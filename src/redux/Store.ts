@@ -1,16 +1,16 @@
-import { configureStore } from '@reduxjs/toolkit';
+import { configureStore } from "@reduxjs/toolkit";
 
-import AsyncStorage from '@react-native-async-storage/async-storage';
-import { persistStore, persistReducer } from 'redux-persist';
-import autoMergeLevel2 from 'redux-persist/lib/stateReconciler/autoMergeLevel2';
+import AsyncStorage from "@react-native-async-storage/async-storage";
+import { persistStore, persistReducer } from "redux-persist";
+import autoMergeLevel2 from "redux-persist/lib/stateReconciler/autoMergeLevel2";
 
-import { rootReducer } from './RootReducer';
-import { AppApi } from '@io/services';
+import { rootReducer } from "./RootReducer";
+import { AppApi } from "@io/services";
 
 const persistConfig = {
-  key: 'root',
+  key: "root",
   storage: AsyncStorage,
-  whitelist: ['auth'], // reducer that needs to be persisted
+  whitelist: ["auth"], // reducer that needs to be persisted
   stateReconciler: autoMergeLevel2,
 };
 
@@ -26,8 +26,7 @@ export const store = configureStore({
   middleware: getDefaultMiddleware =>
     getDefaultMiddleware({
       serializableCheck: false,
-    })
-      .concat([...devMiddlewares, AppApi.middleware]),
+    }).concat([...devMiddlewares, AppApi.middleware]),
 });
 
 export const persistor = persistStore(store);

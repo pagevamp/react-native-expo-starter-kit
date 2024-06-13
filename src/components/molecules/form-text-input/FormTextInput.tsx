@@ -27,10 +27,7 @@ const FormTextInput: FC<FormTextInputProps> = ({
       defaultValue={defaultValue}
       control={control}
       rules={rules}
-      render={({
-        field: { onBlur, onChange, value },
-        fieldState: { error },
-      }) => (
+      render={({ field: { onBlur, onChange, value }, fieldState: { error } }) => (
         <View style={[CommonStyles.flexRoot, { gap: vs.h4 }]}>
           <FontedText
             text="Field"

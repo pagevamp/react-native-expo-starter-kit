@@ -1,11 +1,5 @@
 import React from "react";
-import {
-  StyleSheet,
-  StyleProp,
-  ViewStyle,
-  TextInput,
-  View,
-} from "react-native";
+import { StyleSheet, StyleProp, ViewStyle, TextInput } from "react-native";
 import { Input, InputProps } from "@rneui/themed";
 
 import { Colors, hs, vs, AppFonts } from "@io/constants";
@@ -42,13 +36,7 @@ const STYLES = StyleSheet.create({
 
 const CustomTextInput = React.forwardRef<TextInput, ForwardedRefComponentProps>(
   (
-    {
-      forwardedRef,
-      customContainerStyle,
-      customInputContainerStyle,
-      errorMessage,
-      ...restProps
-    },
+    { forwardedRef, customContainerStyle, customInputContainerStyle, errorMessage, ...restProps },
     ref
   ) => {
     const theme = useThemeColor();

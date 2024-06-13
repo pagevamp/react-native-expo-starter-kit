@@ -1,9 +1,7 @@
-import { combineReducers } from '@reduxjs/toolkit';
+import { combineReducers } from "@reduxjs/toolkit";
 
-import { API_REDUCER_KEY, AppApi } from '@io/services';
-import {
-  AuthReducer,
-} from './slices';
+import { API_REDUCER_KEY, AppApi } from "@io/services";
+import { AuthReducer } from "./slices";
 
 export const rootReducer = combineReducers({
   [API_REDUCER_KEY]: AppApi.reducer,

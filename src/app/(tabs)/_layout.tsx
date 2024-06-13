@@ -39,8 +39,7 @@ const TabLayout = () => {
           },
         ],
         tabBarLabelStyle: STYLES.tabBarLabelStyle,
-      }}
-    >
+      }}>
       <Tabs.Screen
         name="index"
         options={{
