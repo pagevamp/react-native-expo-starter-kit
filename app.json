@@ -19,7 +19,6 @@
           "backgroundColor": "#252525"
         }
       },
-      "bundleIdentifier": "com.outside.reactnativeexpostarterkit",
       "privacyManifests": {
         "NSPrivacyCollectedDataTypes": [
           {
@@ -78,7 +77,6 @@
           "backgroundColor": "#252525"
         }
       },
-      "package": "com.outside.reactnativeexpostarterkit"
     },
     "plugins": [
       "expo-router",

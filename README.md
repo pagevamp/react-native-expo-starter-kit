@@ -8,7 +8,6 @@ Jumpstart your app development journey with this [Expo](https://expo.dev) starte
 - [Create project with template](#create-project-with-template)
 - [Project Structure](#project-structure)
 - [Editor Setup](#editor-setup)
-- [Branching](#branching)
 - [Development Setup](#development-setup)
 - [Project Configuration](#project-configuration)
 - [Build Configuration](#build-configuration)
@@ -33,7 +32,7 @@ Jumpstart your app development journey with this [Expo](https://expo.dev) starte
 > To use this template, make sure to have the [Expo CLI](https://docs.expo.io/workflow/expo-cli/) installed and run:
 
 ```bash
-npx create-expo-app io-mobile-app --template @ichhya/react-native-expo-starter-kit
+npx create-expo-app [app-name] --template @ichhya/react-native-expo-starter-kit
 ```
 
 ## Project Structure
@@ -94,10 +93,6 @@ Following tools are used to make code look consistent. Please install the mentio
 
 - [Prettier](https://prettier.io/)
 - [ESLint](https://eslint.org/)
-
-## Branching
-
-Git workflow is the branching strategy and model we follow which is depicted in this [wiki](https://outsidetech.atlassian.net/wiki/spaces/BHTMW/pages/28442958/Git+workflow).
 
 ## Development Setup
 ### Prerequisites
@@ -217,14 +212,6 @@ The first two steps are required only once, and you don't need to re-register yo
 	eas build --profile preview --platform ios
 	```
 You can then access the build artifact in expo project dashboard and use QR scan to directly install the application in the registered IOS device. If you're running iOS 16 or above and haven't yet turned on Developer Mode, you will need to [enable it](https://docs.expo.dev/guides/ios-developer-mode/) before you can run your build.
-
-### Installing IOS local builds
-If you are using EAS local build, it shall generate **.ipa** file for IOS builds which are not directly installable on ios device. In such cases, you can upload the local build artifact (.ipa) file to a third party tool like [diawi](https://www.diawi.com/) and get a QR code which you can use to install application in your device.
-
-### IOS install error
-If you encounter an error such like "This app cannot be installed because its integrity could not be verified", the issue can be the your device is simply not registered on the developer portal and/or that ad-hoc provisioning profiles have not been regenerated.
-
-You need to register your device, regenerate a provisioning profile with this device in it and rebuild your app using this profile. More information on registering devices can be found [here](https://developer.apple.com/help/account/register-devices/register-a-single-device).
 
 ### Android Internal Distribution
 Since there is no Android restrictions, the operating system is capable of installing any compatible **.apk** file. You can generate an apk file with one command:

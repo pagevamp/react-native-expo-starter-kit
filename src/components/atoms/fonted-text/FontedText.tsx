@@ -28,7 +28,7 @@ interface FontedTextProps extends TextProps {
 
 const FontedText: FC<FontedTextProps> = ({
   text = "",
-  fontFamily = AppFonts.FTBase,
+  fontFamily = AppFonts.SpaceMono,
   fontSize = hs.w14,
   type = "bodyText",
   lightColor = Colors.neutral900,

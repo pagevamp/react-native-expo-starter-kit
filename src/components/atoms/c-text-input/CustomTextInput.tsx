@@ -26,7 +26,7 @@ const STYLES = StyleSheet.create({
     backgroundColor: Colors.neutral100,
   },
   inputStyle: {
-    fontFamily: AppFonts.FTBase,
+    fontFamily: AppFonts.SpaceMono,
     fontSize: hs.w14,
   },
   errorStyle: {

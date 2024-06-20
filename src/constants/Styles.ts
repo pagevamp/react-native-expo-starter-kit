@@ -4,7 +4,7 @@ import { AppFonts } from "./AppFonts";
 import { hs } from "./Scaling";
 
 const COMMON_TEXT_FONT = {
-  fontFamily: AppFonts.FTBase,
+  fontFamily: AppFonts.SpaceMono,
 };
 
 const TextStyles = StyleSheet.create({

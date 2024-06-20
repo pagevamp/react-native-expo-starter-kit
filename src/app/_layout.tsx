@@ -29,7 +29,6 @@ const RootLayout = () => {
 
   const [loaded] = useFonts({
     [AppFonts.SpaceMono]: require("@io/assets/fonts/SpaceMono-Regular.ttf"),
-    [AppFonts.FTBase]: require("@io/assets/fonts/FTBase-Book.otf"),
   });
 
   useEffect(() => {
