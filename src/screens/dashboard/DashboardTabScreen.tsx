@@ -2,15 +2,15 @@ import { View } from "react-native";
 
 import { FontedText, FormButton } from "@io/components";
 import { CommonStyles, vs } from "@io/constants";
-import { useAppDispatch, useThemeColor } from "@io/hooks";
-import { setLoggedIn } from "@io/redux/slices";
+import { useThemeColor } from "@io/hooks";
+import { useAuthStore } from "@io/store";
 
 const DashboardTabScreen = () => {
   const theme = useThemeColor();
-  const dispatch = useAppDispatch();
+  const logout = useAuthStore(state => state.logout);
 
   const handleLogin = () => {
-    dispatch(setLoggedIn(false));
+    logout();
   };
 
   return (

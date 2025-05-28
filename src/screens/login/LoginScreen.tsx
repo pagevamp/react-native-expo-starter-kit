@@ -3,17 +3,17 @@ import { useSafeAreaInsets } from "react-native-safe-area-context";
 
 import { FontedText, FormButton } from "@io/components";
 import { CommonStyles, vs } from "@io/constants";
-import { useAppDispatch, useThemeColor } from "@io/hooks";
-import { setLoggedIn } from "@io/redux/slices";
+import { useThemeColor } from "@io/hooks";
+import { useAuthStore } from "@io/store";
 
 const LoginScreen = () => {
   const theme = useThemeColor();
-  const dispatch = useAppDispatch();
+  const setLoggedIn = useAuthStore(state => state.setLoggedIn);
 
   const insets = useSafeAreaInsets();
 
   const handleLogin = () => {
-    dispatch(setLoggedIn(true));
+    setLoggedIn(true);
   };
 
   return (
