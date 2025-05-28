@@ -48,5 +48,5 @@ export const useAuthStore = create(
 );
 
 export const useIsUserLoggedIn = () => {
-  return useAuthStore(state => !!state.accessToken && !!state.user);
+  return useAuthStore(state => state.isLoggedIn);
 };
