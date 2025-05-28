@@ -1,5 +1,5 @@
 import * as React from "react";
-import { router, useRootNavigationState, useSegments } from "expo-router";
+import { useRouter, useSegments } from "expo-router";
 import { useAppSelector } from "@io/hooks";
 import { useEffect } from "react";
 
@@ -22,20 +22,17 @@ export function useAuth(): ContextInterface {
 
 // Hook to protect routes based on user authentication
 function useProtectedRoute(isLoggedIn: boolean) {
+  const router = useRouter();
   const segments = useSegments();
-  const navigationState = useRootNavigationState();
 
   useEffect(() => {
-    if (!navigationState?.key) return;
-
     const inAuthGroup = segments[0] === "(auth)";
-
     if (!isLoggedIn && !inAuthGroup) {
-      router.replace("/(auth)");
+      router.push("/(auth)");
     } else if (isLoggedIn && inAuthGroup) {
-      router.replace("/(tabs)");
+      router.push("/(tabs)");
     }
-  }, [isLoggedIn, navigationState, segments]);
+  }, [isLoggedIn, segments, router]);
 }
 
 export function AuthProvider({ children }: React.PropsWithChildren) {

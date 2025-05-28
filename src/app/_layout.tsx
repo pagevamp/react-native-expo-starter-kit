@@ -19,7 +19,9 @@ import { AuthProvider } from "@io/services/providers";
   Follow steps mentioned here https://docs.sentry.io/platforms/react-native/manual-setup/expo/
   add SENTRY_AUTH_TOKEN as EAS secret if you're using EAS build
 */
-Sentry.init(sentryConfig);
+if (!__DEV__) {
+  Sentry.init(sentryConfig);
+}
 
 // Prevent the splash screen from auto-hiding before asset loading is complete.
 SplashScreen.preventAutoHideAsync();
