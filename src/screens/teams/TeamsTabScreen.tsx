@@ -1,13 +1,13 @@
 import { View } from "react-native";
+import { useTheme } from "@rneui/themed";
 
 import { Typography, TextType } from "@io/components";
 import { CommonStyles } from "@io/constants";
-import { useThemeColor } from "@io/hooks";
 
 const TeamsTabScreen = () => {
-  const theme = useThemeColor();
+  const { theme } = useTheme();
   return (
-    <View style={[CommonStyles.flexContainer, { backgroundColor: theme.background }]}>
+    <View style={[CommonStyles.flexContainer, { backgroundColor: theme.colors.background }]}>
       <Typography text="Teams Screen" type={TextType.HEADING} />
     </View>
   );

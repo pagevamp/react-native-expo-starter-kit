@@ -1,9 +1,8 @@
 import React from "react";
 import { StyleSheet, StyleProp, ViewStyle, TextInput } from "react-native";
-import { Input, InputProps } from "@rneui/themed";
+import { Input, InputProps, useTheme } from "@rneui/themed";
 
 import { Colors, hs, vs, TextTypeStyles } from "@io/constants";
-import { useThemeColor } from "@io/hooks";
 
 interface CustomTextInputProps extends InputProps {
   customContainerStyle?: StyleProp<ViewStyle>;
@@ -38,7 +37,7 @@ const CustomTextInput = React.forwardRef<TextInput, ForwardedRefComponentProps>(
     { forwardedRef, customContainerStyle, customInputContainerStyle, errorMessage, ...restProps },
     ref
   ) => {
-    const theme = useThemeColor();
+    const { theme } = useTheme();
 
     return (
       <Input
@@ -47,11 +46,11 @@ const CustomTextInput = React.forwardRef<TextInput, ForwardedRefComponentProps>(
         inputContainerStyle={[
           STYLES.inputContainerStyle,
           customInputContainerStyle,
-          { backgroundColor: theme.inputBackground },
+          { backgroundColor: theme.colors.inputBackground },
         ]}
-        inputStyle={[STYLES.inputStyle, { color: theme.inputText }]}
-        placeholderTextColor={theme.inputText}
-        cursorColor={theme.inputText}
+        inputStyle={[STYLES.inputStyle, { color: theme.colors.inputText }]}
+        placeholderTextColor={theme.colors.inputText}
+        cursorColor={theme.colors.inputText}
         renderErrorMessage={false}
         errorMessage={errorMessage}
         errorStyle={STYLES.errorStyle}

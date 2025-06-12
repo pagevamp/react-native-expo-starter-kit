@@ -1,12 +1,12 @@
 import { View } from "react-native";
+import { useTheme } from "@rneui/themed";
 
 import { Typography, FormButton, TextType } from "@io/components";
 import { CommonStyles, vs } from "@io/constants";
-import { useThemeColor } from "@io/hooks";
 import { useAuthStore } from "@io/store";
 
 const DashboardTabScreen = () => {
-  const theme = useThemeColor();
+  const { theme } = useTheme();
   const logout = useAuthStore(state => state.logout);
 
   const handleLogin = () => {
@@ -14,7 +14,7 @@ const DashboardTabScreen = () => {
   };
 
   return (
-    <View style={[CommonStyles.flexContainer, { backgroundColor: theme.background }]}>
+    <View style={[CommonStyles.flexContainer, { backgroundColor: theme.colors.background }]}>
       <Typography text="Dashboard Screen" type={TextType.SUBHEADING} />
 
       <FormButton

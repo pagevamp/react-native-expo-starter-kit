@@ -1,40 +1,34 @@
 import React from "react";
 import { StyleSheet } from "react-native";
 import { Tabs } from "expo-router";
-import { DarkTheme, DefaultTheme } from "@react-navigation/native";
+import { useTheme } from "@rneui/themed";
 
-import { Colors, CustomTheme, TextTypeStyles, vs } from "@io/constants";
-import { useColorScheme } from "@io/hooks";
+import { TextTypeStyles } from "@io/constants";
 import { DashboardSvg, EventsSvg, TeamSvg } from "@io/assets";
 
 const STYLES = StyleSheet.create({
   tabBarStyle: {
-    marginVertical: vs.mr4,
     elevation: 0,
     borderTopWidth: 0,
   },
   tabBarLabelStyle: {
     ...TextTypeStyles.smallText,
-    marginTop: vs.mr4,
   },
 });
 
 const TabLayout = () => {
-  const colorScheme = useColorScheme();
+  const { theme } = useTheme();
 
   return (
     <Tabs
       screenOptions={{
-        tabBarActiveTintColor: CustomTheme[colorScheme ?? "light"].tint,
-        tabBarInactiveTintColor: Colors.neutral400,
+        tabBarActiveTintColor: theme.colors.tabIconSelected,
+        tabBarInactiveTintColor: theme.colors.tabIconDefault,
         headerShown: false,
         tabBarStyle: [
           STYLES.tabBarStyle,
           {
-            backgroundColor:
-              colorScheme === "dark"
-                ? DarkTheme?.colors?.background
-                : DefaultTheme?.colors?.background,
+            backgroundColor: theme.colors.backgroundSecondary,
           },
         ],
         tabBarLabelStyle: STYLES.tabBarLabelStyle,
@@ -44,7 +38,7 @@ const TabLayout = () => {
         options={{
           title: "Dashboard",
           tabBarIcon: ({ color, focused }) => (
-            <DashboardSvg fill={focused ? color : Colors.neutral400} />
+            <DashboardSvg fill={focused ? color : theme.colors.tabIconDefault} />
           ),
         }}
       />
@@ -54,7 +48,7 @@ const TabLayout = () => {
         options={{
           title: "Teams",
           tabBarIcon: ({ color, focused }) => (
-            <TeamSvg fill={focused ? color : Colors.neutral400} />
+            <TeamSvg fill={focused ? color : theme.colors.tabIconDefault} />
           ),
         }}
       />
@@ -64,7 +58,7 @@ const TabLayout = () => {
         options={{
           title: "Events",
           tabBarIcon: ({ color, focused }) => (
-            <EventsSvg fill={focused ? color : Colors.neutral400} />
+            <EventsSvg fill={focused ? color : theme.colors.tabIconDefault} />
           ),
         }}
       />

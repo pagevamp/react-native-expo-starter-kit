@@ -1,6 +1,6 @@
 import "react-native-reanimated";
 import { useEffect } from "react";
-import { DarkTheme, DefaultTheme, ThemeProvider } from "@react-navigation/native";
+import { createTheme, ThemeProvider } from "@rneui/themed";
 import { useFonts } from "expo-font";
 import { Stack } from "expo-router";
 import * as SplashScreen from "expo-splash-screen";
@@ -8,7 +8,7 @@ import * as Sentry from "@sentry/react-native";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 
 import { useColorScheme } from "@io/hooks";
-import { AppFonts } from "@io/constants";
+import { AppFonts, CustomTheme } from "@io/constants";
 import { sentryConfig } from "@io/config";
 import { AuthProvider } from "@io/services/providers";
 
@@ -29,6 +29,12 @@ const queryClient = new QueryClient();
 const RootLayout = () => {
   const colorScheme = useColorScheme();
 
+  const IOTheme = createTheme({
+    lightColors: CustomTheme.light,
+    darkColors: CustomTheme.dark,
+    mode: colorScheme ?? "dark",
+  });
+
   const [loaded] = useFonts({
     [AppFonts.SpaceMono]: require("@io/assets/fonts/SpaceMono-Regular.ttf"),
   });
@@ -45,7 +51,7 @@ const RootLayout = () => {
 
   return (
     <AuthProvider>
-      <ThemeProvider value={colorScheme === "dark" ? DarkTheme : DefaultTheme}>
+      <ThemeProvider theme={IOTheme}>
         <QueryClientProvider client={queryClient}>
           <Stack
             screenOptions={{

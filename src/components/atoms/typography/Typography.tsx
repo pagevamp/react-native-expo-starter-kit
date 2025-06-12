@@ -38,7 +38,7 @@ export const Typography: FC<TypographyProps> = ({
   text = "",
   fontFamily = AppFonts.SpaceMono,
   fontSize,
-  color = Colors.neutral900,
+  color,
   type = TextType.BODY_TEXT,
   lightColor,
   darkColor,
@@ -51,7 +51,7 @@ export const Typography: FC<TypographyProps> = ({
 
   const textStyle: StyleProp<TextStyle> = [
     TextTypeStyles[type],
-    { color: color || theme.colors.primary },
+    { color: color || theme.colors.textPrimary },
     { fontFamily },
     customTextStyle || {},
   ];

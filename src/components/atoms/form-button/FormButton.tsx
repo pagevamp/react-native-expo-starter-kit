@@ -1,10 +1,8 @@
 import React, { FC } from "react";
 import { GestureResponderEvent, StyleProp, TextStyle, ViewStyle, StyleSheet } from "react-native";
-import { Button } from "@rneui/themed";
-import { ButtonProps } from "@rneui/themed";
+import { Button, ButtonProps, useTheme } from "@rneui/themed";
 
 import { Colors, hs, TextTypeStyles, vs } from "@io/constants";
-import { useThemeColor } from "@io/hooks";
 
 interface FormButtonProps extends ButtonProps {
   title?: string;
@@ -42,18 +40,18 @@ const FormButton: FC<FormButtonProps> = ({
   customDisabledTitleStyle = ButtonStyles.formDisabledTitleStyle,
   ...restProps
 }) => {
-  const theme = useThemeColor();
+  const { theme } = useTheme();
 
   return (
     <Button
       title={title}
-      buttonStyle={[customButtonStyle, { backgroundColor: theme.button }]}
-      titleStyle={[customTitleStyle, { color: theme.text }]}
+      buttonStyle={[customButtonStyle, { backgroundColor: theme.colors.buttonPrimary }]}
+      titleStyle={[customTitleStyle, { color: theme.colors.buttonPrimaryText }]}
       onPress={onPress}
       disabledStyle={customDisabledButtonStyle}
       disabledTitleStyle={customDisabledTitleStyle}
       activeOpacity={0.9}
-      loadingProps={{ color: theme.text }}
+      loadingProps={{ color: theme.colors.buttonPrimaryText }}
       {...restProps}
     />
   );

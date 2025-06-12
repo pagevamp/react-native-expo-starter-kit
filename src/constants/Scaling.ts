@@ -99,6 +99,7 @@ export const VERTICAL_SPACING = {
   pd48: vs(48),
 
   // margin
+  mr2: vs(2),
   mr4: vs(4),
   mr10: vs(10),
   mr12: vs(12),
