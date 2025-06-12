@@ -1,7 +1,7 @@
 import { View } from "react-native";
 import { useSafeAreaInsets } from "react-native-safe-area-context";
 
-import { FontedText, FormButton } from "@io/components";
+import { Typography, FormButton, TextType } from "@io/components";
 import { CommonStyles, vs } from "@io/constants";
 import { useThemeColor } from "@io/hooks";
 import { useAuthStore } from "@io/store";
@@ -20,11 +20,11 @@ const LoginScreen = () => {
     <View
       style={[
         CommonStyles.flexRoot,
-        CommonStyles.paddingHorizontal20,
-        { backgroundColor: theme.background, paddingBottom: insets.bottom ?? vs.h18 },
+        CommonStyles.paddingHorizontal24,
+        { backgroundColor: theme.background, paddingBottom: insets.bottom ?? vs.pd24 },
       ]}>
       <View style={CommonStyles.flexContainer}>
-        <FontedText text="Login Screen" />
+        <Typography text="Login Screen" type={TextType.HEADING} />
       </View>
 
       <FormButton title="Login" onPress={handleLogin} />

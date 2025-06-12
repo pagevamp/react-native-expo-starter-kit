@@ -3,7 +3,7 @@ import { GestureResponderEvent, StyleProp, TextStyle, ViewStyle, StyleSheet } fr
 import { Button } from "@rneui/themed";
 import { ButtonProps } from "@rneui/themed";
 
-import { Colors, hs, TextStyles, vs } from "@io/constants";
+import { Colors, hs, TextTypeStyles, vs } from "@io/constants";
 import { useThemeColor } from "@io/hooks";
 
 interface FormButtonProps extends ButtonProps {
@@ -17,18 +17,18 @@ interface FormButtonProps extends ButtonProps {
 
 const ButtonStyles = StyleSheet.create({
   buttonHeight60: {
-    height: vs.h44,
+    height: vs.ht44,
   },
   formDisabledButton: {
     borderColor: "transparent",
   },
   formButtonTitle: {
-    ...TextStyles.FTBaseRegular,
-    fontSize: hs.w15,
+    ...TextTypeStyles.buttonText,
+    fontSize: hs.fs15,
     color: Colors.neutral200,
   },
   formDisabledTitleStyle: {
-    ...TextStyles.FTBaseRegular,
+    ...TextTypeStyles.buttonText,
     opacity: 0.8,
   },
 });

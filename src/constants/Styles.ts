@@ -3,74 +3,73 @@ import { StyleSheet } from "react-native";
 import { AppFonts } from "./AppFonts";
 import { hs } from "./Scaling";
 
-const COMMON_TEXT_FONT = {
+export const CommonTextFont = {
   fontFamily: AppFonts.SpaceMono,
 };
 
-const TextStyles = StyleSheet.create({
-  FTBaseRegular: {
-    ...COMMON_TEXT_FONT,
-    fontWeight: "400",
-  },
-  FTBaseMedium: {
-    ...COMMON_TEXT_FONT,
-    fontWeight: "500",
-  },
-  FTBaseSemiBold: {
-    ...COMMON_TEXT_FONT,
-    fontWeight: "600",
-  },
-  FTBaseBold: {
-    ...COMMON_TEXT_FONT,
-    fontWeight: "800",
-  },
-});
-
-const TextTypeStyles = StyleSheet.create({
+export const TextTypeStyles = StyleSheet.create({
   heading: {
-    ...TextStyles.FTBaseBold,
-    fontSize: hs.w24,
+    ...CommonTextFont,
+    fontSize: hs.fs24,
   },
   subheading: {
-    ...TextStyles.FTBaseSemiBold,
-    fontSize: hs.w20,
+    ...CommonTextFont,
+    fontSize: hs.fs22,
+  },
+  largeText: {
+    ...CommonTextFont,
+    fontSize: hs.fs18,
+  },
+  smallText: {
+    ...CommonTextFont,
+    fontSize: hs.fs12,
   },
   bodyText: {
-    ...TextStyles.FTBaseRegular,
-    fontSize: hs.w12,
+    ...CommonTextFont,
+    fontSize: hs.fs14,
   },
   secondaryText: {
-    fontSize: hs.w14,
+    ...CommonTextFont,
+    fontSize: hs.fs14,
   },
   buttonText: {
-    ...TextStyles.FTBaseMedium,
-    fontSize: hs.w16,
+    ...CommonTextFont,
+    fontSize: hs.fs16,
     textTransform: "uppercase",
   },
+  buttonLinkText: {
+    ...CommonTextFont,
+    fontSize: hs.fs16,
+    textDecorationLine: "underline",
+  },
   linkText: {
-    ...TextStyles.FTBaseMedium,
-    fontSize: hs.w16,
+    ...CommonTextFont,
+    fontSize: hs.fs16,
     textDecorationLine: "underline",
   },
   errorMessage: {
-    ...TextStyles.FTBaseMedium,
-    fontSize: hs.w14,
+    ...CommonTextFont,
+    fontSize: hs.fs14,
+  },
+  inputText: {
+    ...CommonTextFont,
+    fontSize: hs.fs16,
   },
   label: {
-    ...TextStyles.FTBaseSemiBold,
-    fontSize: hs.w14,
+    ...CommonTextFont,
+    fontSize: hs.fs14,
   },
   placeholderText: {
-    ...TextStyles.FTBaseRegular,
-    fontSize: hs.w14,
+    ...CommonTextFont,
+    fontSize: hs.fs16,
   },
   disabledText: {
-    ...TextStyles.FTBaseMedium,
-    fontSize: hs.w16,
+    ...CommonTextFont,
+    fontSize: hs.fs16,
   },
 });
 
-const CommonStyles = StyleSheet.create({
+export const CommonStyles = StyleSheet.create({
   flexRoot: {
     flex: 1,
   },
@@ -126,9 +125,7 @@ const CommonStyles = StyleSheet.create({
   width100: {
     width: "100%",
   },
-  paddingHorizontal20: {
-    paddingHorizontal: hs.w20,
+  paddingHorizontal24: {
+    paddingHorizontal: hs.pd24,
   },
 });
-
-export { TextStyles, CommonStyles, TextTypeStyles };

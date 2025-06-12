@@ -2,7 +2,7 @@ import React from "react";
 import { StyleSheet, StyleProp, ViewStyle, TextInput } from "react-native";
 import { Input, InputProps } from "@rneui/themed";
 
-import { Colors, hs, vs, AppFonts } from "@io/constants";
+import { Colors, hs, vs, TextTypeStyles } from "@io/constants";
 import { useThemeColor } from "@io/hooks";
 
 interface CustomTextInputProps extends InputProps {
@@ -21,13 +21,12 @@ const STYLES = StyleSheet.create({
   },
   inputContainerStyle: {
     borderBottomWidth: 0,
-    paddingHorizontal: hs.w14,
-    height: vs.h44,
+    paddingHorizontal: hs.pd14,
+    height: vs.ht44,
     backgroundColor: Colors.neutral100,
   },
   inputStyle: {
-    fontFamily: AppFonts.SpaceMono,
-    fontSize: hs.w14,
+    ...TextTypeStyles.inputText,
   },
   errorStyle: {
     textAlign: "left",

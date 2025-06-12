@@ -1,6 +1,6 @@
 import { View } from "react-native";
 
-import { FontedText } from "@io/components";
+import { Typography, TextType } from "@io/components";
 import { CommonStyles } from "@io/constants";
 import { useThemeColor } from "@io/hooks";
 
@@ -8,7 +8,7 @@ const EventsTabScreen = () => {
   const theme = useThemeColor();
   return (
     <View style={[CommonStyles.flexContainer, { backgroundColor: theme.background }]}>
-      <FontedText text="Events Screen" />
+      <Typography text="Events Screen" type={TextType.HEADING} />
     </View>
   );
 };

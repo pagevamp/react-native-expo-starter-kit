@@ -3,20 +3,19 @@ import { StyleSheet } from "react-native";
 import { Tabs } from "expo-router";
 import { DarkTheme, DefaultTheme } from "@react-navigation/native";
 
-import { Colors, CustomTheme, hs, TextStyles, vs } from "@io/constants";
+import { Colors, CustomTheme, TextTypeStyles, vs } from "@io/constants";
 import { useColorScheme } from "@io/hooks";
 import { DashboardSvg, EventsSvg, TeamSvg } from "@io/assets";
 
 const STYLES = StyleSheet.create({
   tabBarStyle: {
-    marginVertical: vs.h12,
+    marginVertical: vs.mr4,
     elevation: 0,
     borderTopWidth: 0,
   },
   tabBarLabelStyle: {
-    ...TextStyles.FTBaseRegular,
-    fontSize: hs.w12,
-    marginTop: vs.h8,
+    ...TextTypeStyles.smallText,
+    marginTop: vs.mr4,
   },
 });
 
