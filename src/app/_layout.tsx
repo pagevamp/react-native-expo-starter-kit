@@ -5,6 +5,7 @@ import { useFonts } from "expo-font";
 import { Stack } from "expo-router";
 import * as SplashScreen from "expo-splash-screen";
 import * as Sentry from "@sentry/react-native";
+import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 
 import { useColorScheme } from "@io/hooks";
 import { AppFonts } from "@io/constants";
@@ -22,6 +23,8 @@ if (!__DEV__) {
 
 // Prevent the splash screen from auto-hiding before asset loading is complete.
 SplashScreen.preventAutoHideAsync();
+
+const queryClient = new QueryClient();
 
 const RootLayout = () => {
   const colorScheme = useColorScheme();
@@ -43,14 +46,16 @@ const RootLayout = () => {
   return (
     <AuthProvider>
       <ThemeProvider value={colorScheme === "dark" ? DarkTheme : DefaultTheme}>
-        <Stack
-          screenOptions={{
-            headerShown: false,
-          }}>
-          <Stack.Screen name="(auth)" options={{ animation: "slide_from_left" }} />
+        <QueryClientProvider client={queryClient}>
+          <Stack
+            screenOptions={{
+              headerShown: false,
+            }}>
+            <Stack.Screen name="(auth)" options={{ animation: "slide_from_left" }} />
 
-          <Stack.Screen name="(tabs)" />
-        </Stack>
+            <Stack.Screen name="(tabs)" />
+          </Stack>
+        </QueryClientProvider>
       </ThemeProvider>
     </AuthProvider>
   );

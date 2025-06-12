@@ -5,13 +5,6 @@ import { persist, createJSONStorage, StateStorage } from "zustand/middleware";
 import { STORAGE_KEYS } from "@io/constants";
 import { User } from "@io/models";
 
-export interface PersistedAuthStore {
-  state: {
-    user: User;
-    accessToken: string;
-  };
-}
-
 interface AuthState {
   isLoggedIn: boolean;
   user: User | null;
@@ -50,3 +43,12 @@ export const useAuthStore = create(
 export const useIsUserLoggedIn = () => {
   return useAuthStore(state => state.isLoggedIn);
 };
+
+// Persisted Zustand state object
+export interface PersistedAuthStore {
+  state: {
+    isLoggedIn: boolean;
+    user: User;
+    accessToken: string;
+  };
+}

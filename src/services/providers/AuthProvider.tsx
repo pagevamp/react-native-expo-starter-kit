@@ -1,6 +1,7 @@
 import * as React from "react";
 import { useRouter, useSegments } from "expo-router";
 import { useEffect } from "react";
+
 import { useIsUserLoggedIn } from "@io/store";
 
 const contextInitialState: ContextInterface = {};
@@ -37,8 +38,6 @@ function useProtectedRoute(isLoggedIn: boolean) {
 
 export function AuthProvider({ children }: React.PropsWithChildren) {
   const isLoggedIn = useIsUserLoggedIn();
-
-  console.log(isLoggedIn);
 
   useProtectedRoute(isLoggedIn);
 
