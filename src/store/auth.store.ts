@@ -1,4 +1,5 @@
 import { create } from "zustand";
+import { produce } from "immer";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import { persist, createJSONStorage, StateStorage } from "zustand/middleware";
 
@@ -27,11 +28,28 @@ export const useAuthStore = create(
       isLoggedIn: false,
       user: null,
       accessToken: null,
-      setLoggedIn: loggedIn => set({ isLoggedIn: loggedIn }),
-      handleAuthenticated: ({ user, accessToken }) => set(() => ({ user, accessToken })),
-      logout: () => {
-        set(() => ({ user: null, accessToken: null, isLoggedIn: false }));
-      },
+      setLoggedIn: loggedIn =>
+        set(
+          produce(state => {
+            state.isLoggedIn = loggedIn;
+          })
+        ),
+      handleAuthenticated: ({ user, accessToken }) =>
+        set(
+          produce(state => {
+            state.user = user;
+            state.accessToken = accessToken;
+            state.isLoggedIn = true;
+          })
+        ),
+      logout: () =>
+        set(
+          produce(state => {
+            state.user = null;
+            state.accessToken = null;
+            state.isLoggedIn = false;
+          })
+        ),
     }),
     {
       name: STORAGE_KEYS.AUTH_TOKEN,
@@ -44,7 +62,6 @@ export const useIsUserLoggedIn = () => {
   return useAuthStore(state => state.isLoggedIn);
 };
 
-// Persisted Zustand state object
 export interface PersistedAuthStore {
   state: {
     isLoggedIn: boolean;
