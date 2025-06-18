@@ -1,3 +1,4 @@
+import "../../global.css";
 import "react-native-reanimated";
 import { useEffect } from "react";
 import { createTheme, ThemeProvider } from "@rneui/themed";
@@ -29,7 +30,7 @@ const queryClient = new QueryClient();
 const RootLayout = () => {
   const colorScheme = useColorScheme();
 
-  const IOTheme = createTheme({
+  const AppTheme = createTheme({
     lightColors: CustomTheme.light,
     darkColors: CustomTheme.dark,
     mode: colorScheme ?? "dark",
@@ -51,7 +52,7 @@ const RootLayout = () => {
 
   return (
     <AuthProvider>
-      <ThemeProvider theme={IOTheme}>
+      <ThemeProvider theme={AppTheme}>
         <QueryClientProvider client={queryClient}>
           <Stack
             screenOptions={{

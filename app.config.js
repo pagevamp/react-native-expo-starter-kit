@@ -130,5 +130,8 @@ export default ({ config }) => {
     runtimeVersion: {
       policy: "appVersion",
     },
+    web: {
+      bundler: "metro",
+    },
   };
 };

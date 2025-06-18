@@ -2,7 +2,7 @@ import { View } from "react-native";
 import { useTheme } from "@rneui/themed";
 
 import { Typography, FormButton, TextType } from "@io/components";
-import { CommonStyles, vs } from "@io/constants";
+import { vs } from "@io/constants";
 import { useAuthStore } from "@io/store";
 
 const DashboardTabScreen = () => {
@@ -14,7 +14,9 @@ const DashboardTabScreen = () => {
   };
 
   return (
-    <View style={[CommonStyles.flexContainer, { backgroundColor: theme.colors.background }]}>
+    <View
+      className="flex-1 items-center justify-center"
+      style={{ backgroundColor: theme.colors.background }}>
       <Typography text="Dashboard Screen" type={TextType.SUBHEADING} />
 
       <FormButton

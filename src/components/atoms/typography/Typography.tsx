@@ -2,7 +2,7 @@ import React, { FC } from "react";
 import { Text, StyleSheet, TextProps, TextStyle, StyleProp } from "react-native";
 import { useTheme } from "@rneui/themed";
 
-import { AppFonts, Colors, TextTypeStyles } from "@io/constants";
+import { AppFonts, TextTypeStyles } from "@io/constants";
 
 export enum TextType {
   HEADING = "heading",
@@ -32,6 +32,7 @@ interface TypographyProps extends TextProps {
   numberOfLines?: number;
   customTextStyle?: StyleProp<TextStyle>;
   onTextPress?: () => void;
+  className?: string;
 }
 
 export const Typography: FC<TypographyProps> = ({
@@ -45,6 +46,7 @@ export const Typography: FC<TypographyProps> = ({
   numberOfLines,
   customTextStyle,
   onTextPress,
+  className,
   ...restProps
 }) => {
   const { theme } = useTheme();
@@ -63,6 +65,7 @@ export const Typography: FC<TypographyProps> = ({
       style={StyleSheet.flatten(textStyle)}
       onPress={onTextPress}
       numberOfLines={numberOfLines}
+      className={className}
       {...restProps}>
       {text}
     </Text>

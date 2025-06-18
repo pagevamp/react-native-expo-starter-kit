@@ -1,16 +1,15 @@
 import { View } from "react-native";
 import { useSafeAreaInsets } from "react-native-safe-area-context";
-import { useTheme } from "@rneui/themed";
 
 import { Typography, FormButton, TextType } from "@io/components";
-import { CommonStyles, vs } from "@io/constants";
+import { vs } from "@io/constants";
 import { useAuthStore } from "@io/store";
+import { useTheme } from "@rneui/themed";
 
 const LoginScreen = () => {
-  const { theme } = useTheme();
   const setLoggedIn = useAuthStore(state => state.setLoggedIn);
-
   const insets = useSafeAreaInsets();
+  const { theme } = useTheme();
 
   const handleLogin = () => {
     setLoggedIn(true);
@@ -18,12 +17,9 @@ const LoginScreen = () => {
 
   return (
     <View
-      style={[
-        CommonStyles.flexRoot,
-        CommonStyles.paddingHorizontal24,
-        { backgroundColor: theme.colors.background, paddingBottom: insets.bottom ?? vs.pd24 },
-      ]}>
-      <View style={CommonStyles.flexContainer}>
+      className="flex-1 p-6"
+      style={{ paddingBottom: insets.bottom ?? vs.pd24, backgroundColor: theme.colors.background }}>
+      <View className="flex-1 items-center justify-center">
         <Typography text="Login Screen" type={TextType.HEADING} />
       </View>
 
