@@ -11,7 +11,7 @@ import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { useColorScheme } from "@io/hooks";
 import { AppFonts, CustomTheme } from "@io/constants";
 import { sentryConfig } from "@io/config";
-import { AuthProvider } from "@io/services/providers";
+import { useIsUserLoggedIn } from "@io/store";
 
 /*
   Initialize Sentry after setting up sentry project
@@ -29,6 +29,7 @@ const queryClient = new QueryClient();
 
 const RootLayout = () => {
   const colorScheme = useColorScheme();
+  const isLoggedIn = useIsUserLoggedIn();
 
   const AppTheme = createTheme({
     lightColors: CustomTheme.light,
@@ -51,20 +52,22 @@ const RootLayout = () => {
   }
 
   return (
-    <AuthProvider>
-      <ThemeProvider theme={AppTheme}>
-        <QueryClientProvider client={queryClient}>
-          <Stack
-            screenOptions={{
-              headerShown: false,
-            }}>
+    <ThemeProvider theme={AppTheme}>
+      <QueryClientProvider client={queryClient}>
+        <Stack
+          screenOptions={{
+            headerShown: false,
+          }}>
+          <Stack.Protected guard={!isLoggedIn}>
             <Stack.Screen name="(auth)" options={{ animation: "slide_from_left" }} />
+          </Stack.Protected>
 
+          <Stack.Protected guard={isLoggedIn}>
             <Stack.Screen name="(tabs)" />
-          </Stack>
-        </QueryClientProvider>
-      </ThemeProvider>
-    </AuthProvider>
+          </Stack.Protected>
+        </Stack>
+      </QueryClientProvider>
+    </ThemeProvider>
   );
 };
 
